@@ -412,14 +412,24 @@ class WhatsnewView(LatestFxView):
         fc_ctx = funnelcake_param(self.request)
         f = fc_ctx.get('funnelcake_id', 0)
         oldversion = self.request.GET.get('oldversion', '')
+        num_version = None
+        num_oldversion = None
 
-        if oldversion == '29.0' or (f == '30' and locale == 'en-US'):
-            template = 'firefox/australis/whatsnew-no-tour.html'
-        elif version == '29.0a1':
-            template = 'firefox/whatsnew-nightly-29.html'
-        elif version.startswith('29.'):
-            # non en-US locales always get the tour
-            template = 'firefox/australis/whatsnew-tour.html'
+        try:
+            num_version = int(version[:2])
+        except ValueError:
+            num_version = None
+
+        try:
+            num_oldversion = int(oldversion[:2])
+        except ValueError:
+            num_oldversion = None
+
+        if num_version and num_version >= 29:
+            if num_oldversion and num_oldversion < 29:
+                template = 'firefox/australis/whatsnew-tour.html'
+            else:
+                template = 'firefox/australis/whatsnew-no-tour.html'
         elif locale in self.fxos_locales:
             template = 'firefox/whatsnew-fxos.html'
         else:
