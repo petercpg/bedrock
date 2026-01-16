@@ -1324,9 +1324,9 @@ psycopg-binary==3.2.8 \
     --hash=sha256:f4965bc9d2ef8eed31ff411840e2ab0e1d0c1c59575e0154ced7b652ef0eaa33 \
     --hash=sha256:fe51d8297bc8c178be1cc0ac6c060bfd706afb5cb04e794a44feae27c0afe6f4
     # via psycopg
-pyasn1==0.6.1 \
-    --hash=sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629 \
-    --hash=sha256:6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034
+pyasn1==0.6.2 \
+    --hash=sha256:1eb26d860996a18e9b6ed05e7aae0e9fc21619fcee6af91cca9bad4fbea224bf \
+    --hash=sha256:9b59a2b25ba7e4f8197db7686c09fb33e658b98339fadb826e9512629017833b
     # via
     #   pyasn1-modules
     #   rsa
